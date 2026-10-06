@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفق - المنصة العالمية للعقارات والعمليات الرقمية</title>
+    
+    <!-- Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- مكتبة Lucide للأيقونات -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-500 selection:text-red">
+
+    <!-- Navbar: شريط الملاحة بالنمط الفاتح والقوائم المنسدلة -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- الشعار -->
+               <div class="flex items-center space-x-3 space-x-reverse">
+    <!-- أيقونة الشعار الرمزية -->
+    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center shadow-md shadow-indigo-500/20 shrink-0">
+        <i data-lucide="building-2" class="w-6 h-6 text-white"></i>
+    </div>
+    
+    <img src="logo.jfif" alt="شعار عقارات أفق" class="h-8 w-auto object-contain">
+</div>
+                <!-- القوائم الرئيسية Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse">
+                    
+                    <!-- قائمة منسدلة: الدول والأسواق -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 transition-colors py-2 text-sm font-semibold">
+                            <span>الدول المتاحة</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <!-- Dropdown Menu Content -->
+                        <div class="absolute right-0 top-full mt-2 w-60 rounded-2xl bg-white border border-slate-100 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 p-2 z-50">
+                            <a href="#" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors">
+                                <span class="text-xl">🇸🇦</span>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">المملكة العربية السعودية</p>
+                                    <p class="text-xs text-slate-500">الرياض، جدة، نيوم</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors">
+                                <span class="text-xl">🇦🇪</span>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">الإمارات العربية المتحدة</p>
+                                    <p class="text-xs text-slate-500">دبي، أبوظبي</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors">
+                                <span class="text-xl">🇪🇬</span>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">جمهورية مصر العربية</p>
+                                    <p class="text-xs text-slate-500">القاهرة، العاصمة الإدارية</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors">
+                                <span class="text-xl">🇯🇴</span>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">المملكة الأردنية الهاشمية</p>
+                                    <p class="text-xs text-slate-500">عَمّان، العقبة</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors">
+                                <span class="text-xl">🇺🇸</span>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">الولايات المتحدة</p>
+                                    <p class="text-xs text-slate-500">نيويورك، ميامي</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- قائمة منسدلة: الخدمات الرقمية والعقود -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-slate-600 hover:text-indigo-600 transition-colors py-2 text-sm font-semibold">
+                            <span>الخدمات الرقمية</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute right-0 top-full mt-2 w-64 rounded-2xl bg-white border border-slate-100 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 p-2 z-50">
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                                <i data-lucide="file-check-2" class="w-5 h-5 text-indigo-600"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">العقود الإلكترونية الفورية</p>
+                                    <p class="text-xs text-slate-500">توقيع رقمي موثق رسمياً</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-600"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800">التوثيق القانوني الدولي</p>
+                                    <p class="text-xs text-slate-500">حسب تشريعات الدولة المختارة</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#vr-section" class="text-slate-600 hover:text-indigo-600 transition-colors text-sm font-semibold">جولة VR التفاعلية</a>
+                    <a href="#properties-section" class="text-slate-600 hover:text-indigo-600 transition-colors text-sm font-semibold">العقارات المتاحة</a>
+                </nav>
+
+                <!-- أزرار الدخول والإضافة -->
+                <div class="flex items-center gap-4">
+                   <button onclick="window.location.href='login.html'" class="hidden sm:inline-flex text-slate-700 hover:text-indigo-600 px-4 py-2 text-sm font-semibold transition-colors">
+    تسجيل الدخول
+</button>
+
+<!-- زر أضف عقارك -->
+<button onclick="window.location.href='addlsting.html'" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md shadow-indigo-600/20 transition-all text-sm">
+    أضف عقارك
+</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section: القسم الرئيسي الفاتح -->
+    <section class="relative min-h-[85vh] flex items-center justify-center pt-12 pb-20 overflow-hidden bg-gradient-to-b from-indigo-50/50 via-slate-50 to-white">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-200 bg-white shadow-sm mb-8">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs font-bold text-indigo-900">أول منصة عقارية دولية بالواقع التفاعلي 3D أونلاين</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto mb-6">
+                امتلك أو استأجر بيت أحلامك 
+                <span class="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">من أي مكان بالعالم</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                تصفح العقارات عبر تقنية الـ VR المتطورة على أي جهاز، وتخلص من المعاملات الورقية بإنهاء كافة الإجراءات والعقود الرسمية أونلاين.
+            </p>
+
+            <!-- Search Bar Component: شريط البحث المطور -->
+            <div class="max-w-4xl mx-auto bg-white p-4 sm:p-6 rounded-3xl border border-slate-200 shadow-xl relative z-20">
+                <div class="flex gap-3 border-b border-slate-100 pb-4 mb-5">
+                    <button id="btn-buy" class="px-6 py-2 rounded-xl text-sm font-bold bg-indigo-600 text-white shadow-md transition-all">شراء عقار</button>
+                    <button id="btn-rent" class="px-6 py-2 rounded-xl text-sm font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">استئجار عقار</button>
+                </div>
+
+                <form action="search.html" method="GET"  class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-right">
+                        <label class="block text-xs font-bold text-slate-500 mb-1">المدينة أو الدولة</label>
+                        <div class="relative">
+                            <input type="text" id="search-location" placeholder="مثال: القاهرة، الرياض، عمّان" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400 absolute left-3 top-3.5"></i>
+                        </div>
+                    </div>
+
+                    <div class="text-right">
+                        <label class="block text-xs font-bold text-slate-500 mb-1">نوع العقار</label>
+                        <select id="search-type" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition-colors">
+                            <option value="all">جميع الأنواع</option>
+                            <option value="apartment">شقة سكنية</option>
+                            <option value="villa">فيلا فاخرة</option>
+                            <option value="penthouse">بنتهاوس</option>
+                        </select>
+                    </div>
+
+                    <div class="text-right">
+                        <label class="block text-xs font-bold text-slate-500 mb-1">الميزانية</label>
+                        <select id="search-price" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition-colors">
+                            <option value="any">جميع الأسعار</option>
+                            <option value="low">أقل من $300,000</option>
+                            <option value="medium">$300,000 - $1,000,000</option>
+                            <option value="high">أكثر من $1,000,000</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md shadow-indigo-600/20 flex items-center justify-center gap-2">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                            <span>بحث</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3D / VR Section: تجربة VR التفاعلية المتجاوبة للموبايل واللابتوب -->
+    <section id="vr-section" class="py-16 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <span class="text-indigo-600 text-xs font-extrabold uppercase tracking-wider">تقنية ثلاثية الأبعاد متطورة</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-1">معاينة واقعية متجاوبة (VR Tour)</h2>
+                <p class="text-slate-500 text-sm mt-1">يمكنك اللمس والسحب بالإصبع على الجوال، أو استخدام الماوس على اللابتوب للتنقل 360 درجة</p>
+            </div>
+
+            <!-- حاوية 3D Viewer -->
+            <div class="relative w-full h-[450px] sm:h-[550px] rounded-3xl overflow-hidden border border-slate-200 bg-slate-900 shadow-xl select-none touch-none" id="vr-container">
+                <!-- خلفية البيئة التفاعلية -->
+                <div id="vr-canvas" class="w-full h-full bg-cover bg-center transition-transform duration-100 ease-out" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80');">
+                    <!-- Hotspots -->
+                    <button class="hotspot absolute top-1/2 left-1/3 p-3 bg-white/30 backdrop-blur-md rounded-full text-white border border-white hover:scale-110 transition-transform cursor-pointer" data-room="غرفة المعيشة الفاخرة">
+                        <i data-lucide="eye" class="w-5 h-5"></i>
+                    </button>
+
+                    <button class="hotspot absolute top-1/3 left-2/3 p-3 bg-white/30 backdrop-blur-md rounded-full text-white border border-white hover:scale-110 transition-transform cursor-pointer" data-room="المطبخ المفتوح العصري">
+                        <i data-lucide="eye" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- شريط التحكم السفلي -->
+                <div class="absolute bottom-4 right-4 left-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <p class="text-xs text-indigo-600 font-bold"> فلل فاخرة</p>
+                        <h4 id="current-room-name" class="text-slate-900 font-bold text-base sm:text-lg">فيلا فاخرة وعصرية</h4>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-slate-500 hidden sm:inline">اسحب للتدوير 360°</span>
+                        <button id="btn-rotate-left" class="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-700 transition-colors">
+                            <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                        </button>
+                        <button id="btn-rotate-right" class="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-700 transition-colors">
+                            <i data-lucide="rotate-cw" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section: 6 عناصر عقارية بنظام Grid متناسق -->
+    <section id="properties-section" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center md:text-right mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">عقارات متاحة للشراء والتأجير الدولي</h2>
+                <p class="text-slate-500 mt-1">تصفح العقارات المتاحة مع خدمة تخليص الإجراءات الرقمية المباشرة</p>
+            </div>
+
+            <!-- Grid 6 Elements -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="properties-grid">
+                
+                <!-- Card 1: السعودية -->
+                <div class="property-card bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Villa" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">للبيع</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-900">فيلا الأفق العصرية</h3>
+                            <span class="text-indigo-600 font-black text-lg">$1,200,000</span>
+                        </div>
+                        <p class="text-slate-500 text-xs mb-4 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> الرياض، المملكة العربية السعودية
+                        </p>
+                        <button class="btn-checkout w-full bg-slate-100 hover:bg-indigo-600 hover:text-white text-slate-800 font-semibold py-2.5 rounded-xl transition-all text-sm flex items-center justify-center gap-2" data-title="فيلا الأفق العصرية">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span>بدء إجراءات العقد أونلاين</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: الإمارات -->
+                <div class="property-card bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Penthouse" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">للتأجير</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-900">بنتهاوس الأبراج المطلة</h3>
+                            <span class="text-indigo-600 font-black text-lg">$4,500 / شهرياً</span>
+                        </div>
+                        <p class="text-slate-500 text-xs mb-4 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> دبي، الإمارات العربية المتحدة
+                        </p>
+                        <button class="btn-checkout w-full bg-slate-100 hover:bg-indigo-600 hover:text-white text-slate-800 font-semibold py-2.5 rounded-xl transition-all text-sm flex items-center justify-center gap-2" data-title="بنتهاوس الأبراج المطلة">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span>بدء إجراءات العقد أونلاين</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: مصر -->
+                <div class="property-card bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Apartment" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">للبيع</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-900">شقة العاصمة الفاخرة</h3>
+                            <span class="text-indigo-600 font-black text-lg">$280,000</span>
+                        </div>
+                        <p class="text-slate-500 text-xs mb-4 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> العاصمة الإدارية، مصر
+                        </p>
+                        <button class="btn-checkout w-full bg-slate-100 hover:bg-indigo-600 hover:text-white text-slate-800 font-semibold py-2.5 rounded-xl transition-all text-sm flex items-center justify-center gap-2" data-title="شقة العاصمة الفاخرة">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span>بدء إجراءات العقد أونلاين</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4: الأردن -->
+                <div class="property-card bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Villa" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">للبيع</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-900">فيلا تلال عبدون</h3>
+                            <span class="text-indigo-600 font-black text-lg">$650,000</span>
+                        </div>
+                        <p class="text-slate-500 text-xs mb-4 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> عمّان، الأردن
+                        </p>
+                        <button class="btn-checkout w-full bg-slate-100 hover:bg-indigo-600 hover:text-white text-slate-800 font-semibold py-2.5 rounded-xl transition-all text-sm flex items-center justify-center gap-2" data-title="فيلا تلال عبدون">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span>بدء إجراءات العقد أونلاين</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5: أمريكا -->
+                <div class="property-card bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="Studio" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">للتأجير</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-900">استوديو مانهاتن</h3>
+                            <span class="text-indigo-600 font-black text-lg">$3,200 / شهرياً</span>
+                        </div>
+                        <p class="text-slate-500 text-xs mb-4 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> نيويورك، الولايات المتحدة
+                        </p>
+                        <button class="btn-checkout w-full bg-slate-100 hover:bg-indigo-600 hover:text-white text-slate-800 font-semibold py-2.5 rounded-xl transition-all text-sm flex items-center justify-center gap-2" data-title="استوديو مانهاتن">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span>بدء إجراءات العقد أونلاين</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6: مصر - الساحل الشمالي -->
+                <div class="property-card bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80" alt="Beach Chalet" class="w-full h-full object-cover">
+                        <span class="absolute top-4 right-4 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">للتأجير</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-900">شاليه الساحل الشاطئي</h3>
+                            <span class="text-indigo-600 font-black text-lg">$2,100 / شهرياً</span>
+                        </div>
+                        <p class="text-slate-500 text-xs mb-4 flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> العلمين، مصر
+                        </p>
+                        <button class="btn-checkout w-full bg-slate-100 hover:bg-indigo-600 hover:text-white text-slate-800 font-semibold py-2.5 rounded-xl transition-all text-sm flex items-center justify-center gap-2" data-title="شاليه الساحل الشاطئي">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span>بدء إجراءات العقد أونلاين</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal: نافذة الإجراءات والعقد الإلكتروني -->
+    <div id="contract-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white border border-slate-200 w-full max-w-xl rounded-3xl p-6 shadow-2xl relative mx-4">
+            <button id="close-modal" class="absolute top-4 left-4 text-slate-400 hover:text-slate-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 class="text-2xl font-extrabold text-slate-900 mb-1">إتمام العقد والإجراءات الرسمية</h3>
+            <p class="text-xs text-slate-500 mb-6">سيتم إصدار العقد وتوثيقه وفق تشريعات الدولة المحددة أونلاين</p>
+
+            <form id="contract-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">الاسم الكامل (حسب الوثيقة الرسمية)</label>
+                    <input type="text" required placeholder="أدخل اسمك" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm text-slate-800 focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">الجنسية ودولة الإقامة</label>
+                    <input type="text" required placeholder="مثال: مصري / أردني / سعودي" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm text-slate-800 focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">العقار المحدد</label>
+                    <input type="text" id="modal-property-name" readonly class="w-full bg-slate-100 border border-slate-200 rounded-xl p-3 text-sm text-indigo-700 font-bold">
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition-colors shadow-md shadow-emerald-600/20">
+                    توقيع وإنهاء العقد فوراً
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer: تذييل الصفحة الفاتح -->
+    <footer class="bg-white border-t border-slate-200 py-10 text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
+                    <i data-lucide="building-2" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold text-slate-900">أفُق العالمية</span>
+            </div>
+            <p class="text-sm">جميع الحقوق محفوظة © 2026 منصة أفق للعقارات والمعاملات الرقمية الدولية.</p>
+        </div>
+    </footer>
+
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script src="main.js"></script>
+</body>
+</html>

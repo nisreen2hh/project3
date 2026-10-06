@@ -1,0 +1,32 @@
+/* ==========================================================================
+   التنسيقات الفاتحة والمخصصة - منصة أفق
+   ========================================================================== */
+
+body {
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* تنسيقات ثلاثية الأبعاد متجاوبة لتقنية 3D / VR */
+#vr-canvas {
+    perspective: 1000px;
+    will-change: transform;
+    cursor: grab;
+}
+
+#vr-canvas:active {
+    cursor: grabbing;
+}
+
+/* النقاط الساخنة المتفاعلة في الواقع الافتراضي */
+.hotspot {
+    animation: pulse-glow-light 2s infinite alternate;
+}
+
+@keyframes pulse-glow-light {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 0 14px rgba(255, 255, 255, 0);
+    }
+}

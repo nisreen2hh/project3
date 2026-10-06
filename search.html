@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفق - نتائج البحث عن العقارات</title>
+
+    <!-- Tailwind CSS عبر CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- مكتبة Lucide للأيقونات -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- خط Tajawal من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- التنسيقات المخصصة -->
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .property-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navbar Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center shadow-md shadow-indigo-500/20">
+                        <i data-lucide="building-2" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-2xl font-black text-slate-900">أفُق</span>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse text-sm font-semibold text-slate-600">
+                    <a href="index.html" class="hover:text-indigo-600 transition-colors">الرئيسية</a>
+                    <a href="search.html" class="text-indigo-600 font-bold">البحث المتقدم</a>
+                </nav>
+
+                <a href="index.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md transition-all text-sm">
+                    العودة للرئيسية
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section -->
+    <section class="bg-white border-b border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">محرك البحث العقاري الفعال</h1>
+            <p class="text-slate-500 text-sm mb-6">نتائج بحث فورية وحية بناءً على معايير البحث المحددة</p>
+
+            <!-- Search Form Bar -->
+            <div class="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <!-- Mode Toggle -->
+                <div class="flex gap-2 mb-4 border-b border-slate-200 pb-3">
+                    <button type="button" id="btn-mode-buy" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-sm transition-all">
+                        شراء عقار
+                    </button>
+                    <button type="button" id="btn-mode-rent" class="px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all">
+                        استئجار عقار
+                    </button>
+                </div>
+
+                <!-- Active Search Form -->
+                <form id="search-form" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">المدينة أو الكلمة المفتاحية</label>
+                        <div class="relative">
+                            <input type="text" id="filter-location" placeholder="مثال: الرياض، القاهرة، عمّان..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition-colors">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">الدولة</label>
+                        <select id="filter-country" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition-colors">
+                            <option value="all">جميع الدول</option>
+                            <option value="السعودية">المملكة العربية السعودية</option>
+                            <option value="الإمارات">الإمارات العربية المتحدة</option>
+                            <option value="مصر">جمهورية مصر العربية</option>
+                            <option value="الأردن">المملكة الأردنية الهاشمية</option>
+                            <option value="أمريكا">الولايات المتحدة الأمريكية</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 mb-1">نوع العقار</label>
+                        <select id="filter-type" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-indigo-500 transition-colors">
+                            <option value="all">جميع الأنواع</option>
+                            <option value="فيلا">فيلا</option>
+                            <option value="شقة">شقة سكنية</option>
+                            <option value="بنتهاوس">بنتهاوس</option>
+                            <option value="شاليه">شاليه</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-end gap-2">
+                        <button type="submit" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl transition-all shadow-md shadow-indigo-600/20 flex items-center justify-center gap-2 text-sm">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                            <span>تطبيق البحث</span>
+                        </button>
+                        <button type="button" id="btn-reset" class="bg-white border border-slate-200 hover:bg-slate-100 text-slate-600 p-2.5 rounded-xl transition-colors" title="إلغاء التصفية">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-200">
+            <div>
+                <span class="text-sm font-bold text-slate-700">نتائج البحث المتاحة: </span>
+                <span id="results-count" class="text-sm font-black text-indigo-600">0 عقارات</span>
+            </div>
+        </div>
+
+        <!-- Grid Results -->
+        <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Rendered Dynamically -->
+        </div>
+
+        <!-- No Results Fallback -->
+        <div id="no-results" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="search-x" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-800 mb-1">لم نجد عقارات تطابق بحثك</h3>
+            <p class="text-xs text-slate-500">جرب تغيير اسم المدينة، اختيار دولة أخرى، أو الضغط على زر إعاده الضبط.</p>
+        </div>
+
+    </main>
+
+    <!-- Live Search Engine Script -->
+    <script>
+        // قاعدة بيانات العقارات الرئيسية المتاحة بالموقع (6 عناصر)
+        const databaseProperties = [
+            {
+                id: 1,
+                title: "فيلا الأفق العصرية",
+                price: "$1,200,000",
+                type: "فيلا",
+                mode: "buy",
+                country: "السعودية",
+                city: "الرياض",
+                locationText: "الرياض، المملكة العربية السعودية",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 2,
+                title: "بنتهاوس الأبراج المطلة",
+                price: "$4,500 / شهرياً",
+                type: "بنتهاوس",
+                mode: "rent",
+                country: "الإمارات",
+                city: "دبي",
+                locationText: "دبي، الإمارات العربية المتحدة",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 3,
+                title: "شقة العاصمة الفاخرة",
+                price: "$280,000",
+                type: "شقة",
+                mode: "buy",
+                country: "مصر",
+                city: "القاهرة",
+                locationText: "العاصمة الإدارية، مصر",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 4,
+                title: "فيلا تلال عبدون",
+                price: "$650,000",
+                type: "فيلا",
+                mode: "buy",
+                country: "الأردن",
+                city: "عمّان",
+                locationText: "عمّان، الأردن",
+                image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 5,
+                title: "استوديو مانهاتن",
+                price: "$3,200 / شهرياً",
+                type: "شقة",
+                mode: "rent",
+                country: "أمريكا",
+                city: "نيويورك",
+                locationText: "نيويورك، الولايات المتحدة",
+                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 6,
+                title: "شاليه الساحل الشاطئي",
+                price: "$2,100 / شهرياً",
+                type: "شاليه",
+                mode: "rent",
+                country: "مصر",
+                city: "العلمين",
+                locationText: "العلمين، مصر",
+                image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        let currentMode = 'buy';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            const btnBuy = document.getElementById('btn-mode-buy');
+            const btnRent = document.getElementById('btn-mode-rent');
+            const searchForm = document.getElementById('search-form');
+            const btnReset = document.getElementById('btn-reset');
+            const propertiesGrid = document.getElementById('properties-grid');
+            const resultsCount = document.getElementById('results-count');
+            const noResults = document.getElementById('no-results');
+
+            const inputLocation = document.getElementById('filter-location');
+            const selectCountry = document.getElementById('filter-country');
+            const selectType = document.getElementById('filter-type');
+
+            // 1. قراءة معاملات الرابط (URL Query Parameters) القادمة من الصفحة الرئيسية
+            function parseURLParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+                
+                if (urlParams.has('mode')) {
+                    currentMode = urlParams.get('mode') === 'rent' ? 'rent' : 'buy';
+                }
+                if (urlParams.has('location')) {
+                    inputLocation.value = urlParams.get('location');
+                }
+                if (urlParams.has('country')) {
+                    selectCountry.value = urlParams.get('country');
+                }
+                if (urlParams.has('type')) {
+                    selectType.value = urlParams.get('type');
+                }
+
+                updateUIState();
+            }
+
+            function updateUIState() {
+                if (currentMode === 'buy') {
+                    btnBuy.className = "px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-sm transition-all";
+                    btnRent.className = "px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all";
+                } else {
+                    btnRent.className = "px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-sm transition-all";
+                    btnBuy.className = "px-5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all";
+                }
+            }
+
+            // 2. تصفية البيانات بأسلوب الحقيقي والمطابقة
+            function performSearch() {
+                const locVal = inputLocation.value.trim().toLowerCase();
+                const countryVal = selectCountry.value;
+                const typeVal = selectType.value;
+
+                const filtered = databaseProperties.filter(item => {
+                    const matchMode = item.mode === currentMode;
+                    const matchLoc = locVal === '' || 
+                                     item.locationText.toLowerCase().includes(locVal) || 
+                                     item.title.toLowerCase().includes(locVal) ||
+                                     item.city.toLowerCase().includes(locVal);
+                    
+                    const matchCountry = countryVal === 'all' || item.country === countryVal;
+                    
+                    // مطابقة نوع العقار (سواء باللغة الإنجليزية أو العربية)
+                    let matchType = typeVal === 'all';
+                    if (!matchType) {
+                        if (typeVal === 'apartment' && item.type === 'شقة') matchType = true;
+                        else if (typeVal === 'villa' && item.type === 'فيلا') matchType = true;
+                        else if (typeVal === 'penthouse' && item.type === 'بنتهاوس') matchType = true;
+                        else if (typeVal === item.type) matchType = true;
+                    }
+
+                    return matchMode && matchLoc && matchCountry && matchType;
+                });
+
+                // عرض النتائج
+                resultsCount.textContent = `${filtered.length} عقارات`;
+                propertiesGrid.innerHTML = '';
+
+                if (filtered.length === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                    filtered.forEach(item => {
+                        const card = document.createElement('div');
+                        card.className = "property-card bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm";
+                        
+                        const badgeBg = item.mode === 'buy' ? 'bg-emerald-600' : 'bg-indigo-600';
+                        const badgeLabel = item.mode === 'buy' ? 'للبيع' : 'للتأجير';
+
+                        card.innerHTML = `
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
+                                <span class="absolute top-4 right-4 ${badgeBg} text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                    ${badgeLabel}
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-base font-bold text-slate-900">${item.title}</h3>
+                                    <span class="text-indigo-600 font-black text-base">${item.price}</span>
+                                </div>
+                                <p class="text-slate-500 text-xs mb-4 flex items-center gap-1">
+                                    <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> ${item.locationText}
+                                </p>
+                                <button onclick="alert('تم بدء إجراءات التوثيق أونلاين لـ: ${item.title}')" class="w-full bg-slate-100 hover:bg-indigo-600 hover:text-white text-slate-800 font-semibold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-2">
+                                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                                    <span>بدء العقد أونلاين</span>
+                                </button>
+                            </div>
+                        `;
+                        propertiesGrid.appendChild(card);
+                    });
+                    lucide.createIcons();
+                }
+            }
+
+            // أحداث الأزرار
+            btnBuy.addEventListener('click', () => {
+                currentMode = 'buy';
+                updateUIState();
+                performSearch();
+            });
+
+            btnRent.addEventListener('click', () => {
+                currentMode = 'rent';
+                updateUIState();
+                performSearch();
+            });
+
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                performSearch();
+            });
+
+            btnReset.addEventListener('click', () => {
+                searchForm.reset();
+                currentMode = 'buy';
+                updateUIState();
+                performSearch();
+            });
+
+            // بدء التشغيل وقراءة رابط الصفحة
+            parseURLParams();
+            performSearch();
+        });
+    </script>
+</body>
+</html>
